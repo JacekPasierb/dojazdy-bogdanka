@@ -34,11 +34,6 @@ const mm = String(today.getMonth() + 1).padStart(2, "0");
 const dd = String(today.getDate()).padStart(2, "0");
 const todayStr = `${yyyy}-${mm}-${dd}`;
 
-
-
-
-
-
 const initialValues: FormValues = {
   type: "offer",
   from: "Łęczna",
@@ -50,7 +45,6 @@ const initialValues: FormValues = {
   note: "",
   agree: false,
 };
-
 
 // helpery dla pola telefon lub messenger
 
@@ -126,18 +120,18 @@ const Schema = Yup.object({
     .trim()
     .required("Podaj numer telefonu lub link do Messengera")
     .test(
-    "phone-or-messenger",
-    "Podaj poprawny numer telefonu lub link do Messengera",
-    (value) => {
-      if (!value) return false;
+      "phone-or-messenger",
+      "Podaj poprawny numer telefonu lub link do Messengera",
+      (value) => {
+        if (!value) return false;
 
-      // link → OK
-      if (isMessengerLink(value)) return true;
+        // link → OK
+        if (isMessengerLink(value)) return true;
 
-      // telefon → walidujemy PL
-      return isValidPLPhone(value);
-    }
-  ),
+        // telefon → walidujemy PL
+        return isValidPLPhone(value);
+      }
+    ),
   note: Yup.string().max(280, "Maks 280 znaków").optional(),
   agree: Yup.boolean().oneOf([true], "Zaznacz zgodę"),
 });
@@ -265,7 +259,7 @@ export default function AddRideForm({onCreated}: {onCreated?: () => void}) {
               </UiField>
             </div>
 
-            <div className="grid grid-cols-2 gap-[10px]">
+            <div className="grid grid-cols-1 gap-[10px] sm:grid-cols-2">
               <UiField label="Data przejazdu">
                 <input
                   name="date"

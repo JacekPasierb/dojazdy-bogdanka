@@ -65,7 +65,7 @@ const RidesBoard = ({
       )}
 
       {!loading && total > 0 && (
-        <div className="mt-4 flex items-center justify-between gap-3 border-t border-slate-700/70 pt-3">
+        <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-slate-700/70 pt-3">
           <div className="text-[12px] text-slate-400">
             Strona <span className="font-semibold text-slate-100">{page}</span>{" "}
             / {pages} • {total} ogłoszeń
