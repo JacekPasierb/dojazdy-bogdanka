@@ -140,7 +140,7 @@ export default function AddRideForm({onCreated}: {onCreated?: () => void}) {
   return (
     <section
       id="formPanel"
-      className="rounded-[18px] border border-slate-700/70 bg-slate-900/70 p-[14px]"
+      className="rounded-[18px] border border-slate-700/70 bg-slate-900/70 p-[14px] overflow-hidden"
     >
       <h2 className="mb-[10px] text-[18px] font-extrabold">Dodaj ogłoszenie</h2>
 
