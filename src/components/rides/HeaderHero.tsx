@@ -1,8 +1,10 @@
+import { MapCarIcon } from "../icons/MapCarIcons";
+
 const HeaderHero = () => {
   return (
     <section className="rounded-[18px] border border-slate-700/70 bg-gradient-to-b from-slate-900/90 to-slate-900/65 p-[18px]">
       <h1 className="mb-2 text-[26px] font-extrabold leading-tight">
-        🚗 Dojazdy Bogdanka
+        <MapCarIcon className="inline h-7 w-7 text-blue-400" /> Dojazdy Bogdanka
       </h1>
 
       <p className="mb-[14px] text-[14px] leading-[1.35] text-slate-300">
