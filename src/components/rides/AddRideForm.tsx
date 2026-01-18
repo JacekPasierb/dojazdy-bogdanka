@@ -266,7 +266,7 @@ export default function AddRideForm({onCreated}: {onCreated?: () => void}) {
                     name="date"
                     type="date"
                     min={todayStr}
-                    className={INPUT}
+                    className={`${INPUT} min-w-0 max-w-full`}
                     value={values.date}
                     onChange={handleChange}
                     onBlur={handleBlur}
@@ -281,7 +281,7 @@ export default function AddRideForm({onCreated}: {onCreated?: () => void}) {
                 <input
                   name="time"
                   type="time"
-                  className={INPUT}
+                  className={`${INPUT} min-w-0 max-w-full`}
                   value={values.time}
                   min={values.date === todayStr ? nowPlus15() : undefined}
                   onChange={handleChange}
