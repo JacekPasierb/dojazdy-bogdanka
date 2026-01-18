@@ -30,6 +30,14 @@ const RideCard=({ offer }: { offer: Offer })=> {
     return `tel:${phone}`;
   }
 
+  function getContactLabel(contact: string) {
+    if (isUrl(contact)) {
+      return "Kontakt Messenger";
+    }
+    return contact; // telefon
+  }
+
+
   return (
     <article className="grid gap-2 rounded-2xl border border-slate-700/70 bg-slate-950/30 p-3">
       <div className="flex items-center justify-between gap-2">
@@ -69,7 +77,7 @@ const RideCard=({ offer }: { offer: Offer })=> {
           rel={isUrl(offer.contact) ? "noreferrer" : undefined}
           className="font-extrabold text-slate-100 underline decoration-slate-500/40 underline-offset-4 hover:decoration-slate-300"
         >
-          {offer.contact}
+          {getContactLabel(offer.contact)}
         </a>
       </div>
 
