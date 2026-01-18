@@ -7,6 +7,8 @@ import type {OfferType} from "@/types/offers";
 
 const INPUT =
   "w-full min-w-0 max-w-full rounded-xl border border-slate-700/90 bg-black/20 px-2 py-[11px] text-slate-100 outline-none placeholder:text-slate-400/70 focus:border-blue-400/80";
+const INPUTD =
+  "w-full min-w-0  rounded-xl border border-slate-700/90 bg-black/20 px-2 py-[11px] text-slate-100 outline-none placeholder:text-slate-400/70 focus:border-blue-400/80";
 
 type FormValues = {
   type: OfferType;
@@ -265,7 +267,7 @@ export default function AddRideForm({onCreated}: {onCreated?: () => void}) {
                   name="date"
                   type="date"
                   min={todayStr}
-                  className={`${INPUT} min-w-0`}
+                  className={`${INPUTD} min-w-0`}
                   value={values.date}
                   onChange={handleChange}
                   onBlur={handleBlur}
@@ -279,7 +281,7 @@ export default function AddRideForm({onCreated}: {onCreated?: () => void}) {
                 <input
                   name="time"
                   type="time"
-                  className={`${INPUT} min-w-0`}
+                  className={`${INPUTD} min-w-0`}
                   value={values.time}
                   min={values.date === todayStr ? nowPlus15() : undefined}
                   onChange={handleChange}
