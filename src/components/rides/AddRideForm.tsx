@@ -6,7 +6,7 @@ import {Field as UiField} from "@/components/rides/ui/Field";
 import type {OfferType} from "@/types/offers";
 
 const INPUT =
-  "w-full min-w-0 max-w-full rounded-xl border border-slate-700/90 bg-black/20 px-3 py-[11px] text-slate-100 outline-none placeholder:text-slate-400/70 focus:border-blue-400/80";
+  "block w-full min-w-0 max-w-full rounded-xl border border-slate-700/90 bg-black/20 px-3 py-[11px] text-slate-100 outline-none placeholder:text-slate-400/70 focus:border-blue-400/80";
 
 type FormValues = {
   type: OfferType;
