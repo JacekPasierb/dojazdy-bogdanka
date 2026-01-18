@@ -260,20 +260,22 @@ export default function AddRideForm({onCreated}: {onCreated?: () => void}) {
             </div>
 
             <div className="grid grid-cols-1 gap-[10px] sm:grid-cols-2">
-              <UiField label="Data przejazdu">
-                <input
-                  name="date"
-                  type="date"
-                  min={todayStr}
-                  className={INPUT} 
-                  value={values.date}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
-                />
-                {touched.date && errors.date && (
-                  <ErrorText>{errors.date}</ErrorText>
-                )}
-              </UiField>
+              <div className="min-w-0">
+                <UiField label="Data przejazdu">
+                  <input
+                    name="date"
+                    type="date"
+                    min={todayStr}
+                    className={INPUT}
+                    value={values.date}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  />
+                  {touched.date && errors.date && (
+                    <ErrorText>{errors.date}</ErrorText>
+                  )}
+                </UiField>
+              </div>
 
               <UiField label="Godzina">
                 <input
