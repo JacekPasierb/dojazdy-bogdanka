@@ -16,14 +16,28 @@ export default function Footer() {
       <p className="mt-3">
         Masz uwagi, pomysł na ulepszenie lub chcesz pomóc w rozwoju?
         <br />
-        Napisz do nas: 
+        Napisz do nas:{" "}
         <a
           href="mailto:dojazdy.bogdanka@o2.pl"
           className="font-semibold text-slate-300 underline underline-offset-2 hover:text-slate-100"
         >
-           dojazdy.bogdanka@o2.pl
+          dojazdy.bogdanka@o2.pl
         </a>
       </p>
+      <div className="mt-4 flex flex-wrap justify-center gap-3 text-[12px]">
+        <a
+          href="/privacy"
+          className="underline underline-offset-2 hover:text-slate-200"
+        >
+          Prywatność
+        </a>
+        <a
+          href="/terms"
+          className="underline underline-offset-2 hover:text-slate-200"
+        >
+          Zasady
+        </a>
+      </div>
     </footer>
   );
 }
