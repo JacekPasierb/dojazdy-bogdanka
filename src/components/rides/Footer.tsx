@@ -12,6 +12,18 @@ export default function Footer() {
         <br />
         Kontakt i ustalenia odbywają się bezpośrednio między użytkownikami.
       </p>
+
+      <p className="mt-3">
+        Masz uwagi, pomysł na ulepszenie lub chcesz pomóc w rozwoju?
+        <br />
+        Napisz do nas:
+        <a
+          href="mailto:dojazdy.bogdanka@o2.pl"
+          className="font-semibold text-slate-300 underline underline-offset-2 hover:text-slate-100"
+        >
+          dojazdy.bogdanka@o2.pl
+        </a>
+      </p>
     </footer>
   );
 }
