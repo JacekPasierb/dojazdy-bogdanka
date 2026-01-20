@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     siteName: "Dojazdy Bogdanka",
     images: [
       {
-        url: "/og-image.png",
+        url: "https://dojazdy-bogdanka.netlify.app/og-image.png",
         width: 1200,
         height: 630,
         alt: "Dojazdy do Bogdanki – wspólne dojazdy pracowników",
