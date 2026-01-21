@@ -31,7 +31,7 @@ export async function GET(req: Request) {
       Number.isFinite(limit) && limit > 0 && limit <= 50 ? limit : 6;
 
     const filter: Record<string, unknown> = {
-      expiresAt: {$gt: now},
+      rideAt: {$gt: now},
     };
 
     if (type !== "all") filter.type = type;
@@ -77,7 +77,14 @@ export async function POST(req: Request) {
     }
 
     const rideAt = buildRideAt(String(date), String(time));
-
+// zabezpieczenie backend - dodanie ogloszenia na przejazd nie wczesniej niz za 15 minut
+    const minRideAt = new Date(Date.now() + 15 * 60 * 1000);
+    if (rideAt < minRideAt) {
+      return NextResponse.json(
+        {error: "Przejazd musi być co najmniej 15 minut od teraz"},
+        {status: 400}
+      );
+    }
     // ✅ automatyczne sprzątanie: np. 6h po przejeździe
     const expiresAt = new Date(rideAt.getTime() + 6 * 60 * 60 * 1000);
 
