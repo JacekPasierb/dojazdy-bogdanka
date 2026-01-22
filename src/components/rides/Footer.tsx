@@ -12,6 +12,7 @@ export default function Footer() {
         <br />
         Kontakt i ustalenia odbywają się bezpośrednio między użytkownikami.
       </p>
+      <p>Serwis nie jest powiązany z LW Bogdanka ani żadnym pracodawcą.</p>
 
       <p className="mt-3">
         Masz uwagi, pomysł na ulepszenie lub chcesz pomóc w rozwoju?
