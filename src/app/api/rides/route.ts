@@ -3,15 +3,23 @@ import {dbConnect} from "@/lib/mongodb";
 import {Ride} from "@/models/Ride";
 
 function buildRideAt(dateStr: string, timeStr: string) {
-  // dateStr: "YYYY-MM-DD", timeStr: "HH:mm"
-  // Tworzymy lokalny czas (jak w przeglądarce). Na hostingu różnice stref to temat na później (da się dopiąć).
   const [y, m, d] = dateStr.split("-").map(Number);
   const [hh, mm] = timeStr.split(":").map(Number);
 
-  const rideAt = new Date(y, m - 1, d, hh, mm, 0, 0);
+  // Tworzymy "udawaną" datę w UTC
+  const utcDate = new Date(Date.UTC(y, m - 1, d, hh, mm, 0));
 
-  if (Number.isNaN(rideAt.getTime())) throw new Error("Invalid date/time");
-  return rideAt;
+  // Pobieramy offset strefy Europe/Warsaw dla tej daty
+  const offsetMinutes = -new Date(y, m - 1, d, hh, mm).getTimezoneOffset();
+
+  // Odejmujemy offset, żeby dostać prawdziwy UTC
+  utcDate.setMinutes(utcDate.getMinutes() - offsetMinutes);
+
+  if (Number.isNaN(utcDate.getTime())) {
+    throw new Error("Invalid date/time");
+  }
+
+  return utcDate; // ✅ Date w UTC, gotowe do Mongo
 }
 
 export async function GET(req: Request) {
@@ -77,7 +85,7 @@ export async function POST(req: Request) {
     }
 
     const rideAt = buildRideAt(String(date), String(time));
-// zabezpieczenie backend - dodanie ogloszenia na przejazd nie wczesniej niz za 15 minut
+    // zabezpieczenie backend - dodanie ogloszenia na przejazd nie wczesniej niz za 15 minut
     const minRideAt = new Date(Date.now() + 15 * 60 * 1000);
     if (rideAt < minRideAt) {
       return NextResponse.json(

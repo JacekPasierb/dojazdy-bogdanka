@@ -41,6 +41,7 @@ export const RidesPage = () => {
       const res = await fetch(`/api/rides?${qs.toString()}`, {
         cache: "no-store",
       });
+
       if (!res.ok) throw new Error("Fetch failed");
 
       const data: RidesApiResponse = await res.json();
