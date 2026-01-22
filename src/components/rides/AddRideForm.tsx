@@ -404,6 +404,7 @@ export default function AddRideForm({onCreated}: {onCreated?: () => void}) {
                 Nie pośredniczymy w płatnościach. Nie weryfikujemy użytkowników.
                 Zachowaj ostrożność.
               </div>
+              <div>Serwis nie jest powiązany z LW Bogdanka ani żadnym pracodawcą.</div>
             </div>
           </form>
         )}

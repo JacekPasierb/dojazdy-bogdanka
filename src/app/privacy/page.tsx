@@ -20,7 +20,11 @@ export default function PrivacyPage() {
           to prosta tablica ogłoszeń. Publikując ogłoszenie, użytkownik sam
           decyduje, jakie dane kontaktowe podaje (telefon lub link do
           Messengera).
-        </p>
+              </p>
+              <p>
+                  Administratorem danych jest właściciel serwisu Dojazdy Bogdanka. 
+                  Kontakt: dojazdy.bogdanka@o2.pl
+              </p>
 
         <section>
           <h2 className="text-base font-bold text-slate-100">
@@ -87,7 +91,7 @@ export default function PrivacyPage() {
           </h2>
           <p className="mt-2">
             Jeśli chcesz usunąć ogłoszenie szybciej lub masz pytania dot.
-            prywatności, napisz na{" "}
+            prywatności, napisz na {" "}
             <a
               className="underline underline-offset-2 hover:text-slate-100"
               href="mailto:dojazdy.bogdanka@o2.pl"
